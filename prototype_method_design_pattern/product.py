@@ -18,17 +18,17 @@ class productPrototype(ABC):
 
 class product(productPrototype):
     def __init__(self,name : str , price : float): 
-        self.name = name 
-        self.price = price
+        self.__name = name 
+        self.__price = price
 
 
     def clone(self):
-        return product(self.name,self.price) 
+        return product(self.__name,self.__price) 
 
 
     def display(self):
-        print(f"Name : {self.name}")
-        print(f"Price : {self.price}") 
+        print(f"Name : {self.__name}")
+        print(f"Price : {self.__price}") 
 
 
 
