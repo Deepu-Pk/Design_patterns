@@ -11,11 +11,12 @@ class paymentGateway:
 
     # Singleton design pattern
     def __new__(cls):
-        with cls.__lock:
-            if cls.__instance is None:
-                cls.__instance = super(paymentGateway,cls).__new__(cls)
-                print(f"Payment gateway is intialized")
-            return cls.__instance 
+        if cls.__instance is None: # Double check locking
+            with cls.__lock:
+                if cls.__instance is None:
+                    cls.__instance = super(paymentGateway,cls).__new__(cls)
+                    print(f"Payment gateway is intialized")
+        return cls.__instance 
         
     
     def processPayment(self, amount : float) -> None: 
