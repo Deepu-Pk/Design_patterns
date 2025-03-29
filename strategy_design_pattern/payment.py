@@ -26,8 +26,8 @@ class gpayPayament(paymentStrategy):
         print(f"[INFO] : Processing Gpay payement of {amount}")
 
 
-# Internet banking payment system 
-class internetBankPayament(paymentStrategy):
+# netbanking payment system 
+class netBankPayament(paymentStrategy):
     def processPayment(self, amount):
         print(f"[INFO] : Processing internet baking payament of {amount}")
 
@@ -69,7 +69,7 @@ def main():
     processor.processPayament(3355.00)
 
     #Internet payament method 
-    strategy = internetBankPayament() 
+    strategy = netBankPayament() 
     processor.setPayamentStrategy(strategy)
     processor.processPayament(42525.00)
 
